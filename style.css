@@ -1,0 +1,71 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+:root{
+	--btnMagicWidth : 200px;
+	--btnMagicSize : var(--btnMagicWidth);
+}
+.content{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.btn-magic{
+	width: var(--btnMagicWidth);
+	height: calc(var(--btnMagicSize) / 4);
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	color:#fff;
+	cursor:pointer;
+	transition: .5s;
+}
+.btn-magic::before, .btn-magic::after{
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	background: #9c27b0;
+	display: flex;
+	align-items: center;
+}
+.btn-magic::before{
+	content: 'SUSCR';
+	justify-content: flex-end;
+	left:0;
+}
+.btn-magic::after{
+	content: 'IBETE';
+	justify-content: flex-start;
+	right:0;
+}
+.btn-magic:hover::before{
+	transform: translateX(-300px) scaleY(0);
+	background: #E91363;
+	animation: goToLeft linear .5s;
+}
+
+.btn-magic:hover::after{
+	transform: translateX(300px) scaleY(0);
+	background: #009688;
+	animation: goToRight linear .5s;
+}
+.btn-magic:hover{
+	background: #2196f3;
+	transform: scale(1.1);
+	border-radius: 4px;
+}
+@keyframes goToLeft{
+	0%{ transform: translateX(0) scaleY(1);}
+	50%{ transform: translateX(-100px) scaleY(.5);}
+	100%{ transform: translateX(-300px) scaleY(0);}
+}
+@keyframes goToRight{
+	0%{ transform: translateX(0) scaleY(1);}
+	50%{ transform: translateX(100px) scaleY(.5);}
+	100%{ transform: translateX(300px) scaleY(0);}
+}
